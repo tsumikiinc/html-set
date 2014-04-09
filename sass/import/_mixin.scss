@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+$white: #fff;
+$black: #000;
+
+@mixin font_size($fontSize, $baseFontSize:16){
+	font-size: percentage($fontSize / $baseFontSize);
+}
+
+
+
+// my minxin --------------------
+
+@mixin gradient($from, $to) {
+	background-color: mix($from, $to, 50%);
+
+	background: -webkit-linear-gradient(top,$from,$to);
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(0,$from),color-stop(1,$to));
+	background: linear-gradient(to bottom,$from,$to);
+
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}', GradientType=0);
+}
+
+@mixin boxSizing($prop) {
+	-webkit-box-sizing: $prop;
+	-moz-box-sizing: $prop;
+	box-sizing: $prop;
+}
+
+@mixin transform($prop) {
+	-webkit-transform: $prop;
+	-ms-transform: $prop;
+	transform: $prop;
+}
+
+@mixin animation($name, $duration, $tfunc, $delay, $fillmode, $icount, $direction) {
+	-webkit-animation-name: $name;
+	-webkit-animation-duration: $duration;
+	-webkit-animation-timing-function: $tfunc;
+	-webkit-animation-delay: $delay;
+	-webkit-animation-fill-mode: $fillmode;
+	-webkit-animation-iteration-count: $icount;
+	-webkit-animation-direction: $direction;
+	animation-name: $name;
+	animation-duration: $duration;
+	animation-timing-function: $tfunc;
+	animation-delay: $delay;
+	animation-fill-mode: $fillmode;
+	animation-iteration-count: $icount;
+	animation-direction: $direction;
+}
+
+@mixin keyframes($animationName) {
+	@-webkit-keyframes $animationName {
+		@content;
+	}
+	@keyframes $animationName {
+		@content;
+	}
+}
+
+@mixin fotSize($val) {
+	font-size: ($size + px);
+	font-size: (($size/10) + rem);
+}
+
+@mixin hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	border: 0;
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+
+@mixin transition($property, $duration, $easing: ease-out) {
+	-webkit-transition: $property $duration $easing;
+	transition: $property $duration $easing;
+}
+
+@mixin clearfix {
+	&:after {
+		content: "";
+		clear: both;
+		display: block;
+	}
+}
+
+@function makelongshadow($clr, $a) {
+	$val: 0px 0px $clr;
+	@for $i from 1 through $a {
+		$val: #{$val}, #{$i}px #{$i}px #{lighten($clr, $i)};
+	}
+	@return $val;
+}
+
+@mixin longshadow($fontClr) {
+	text-shadow: makelongshadow($fontClr, 50);
+}

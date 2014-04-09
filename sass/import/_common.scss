@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+/* ==================================================================
+
+	基礎要素・汎用class
+------------------------------------------------------------------ */
+::-moz-selection {
+	background: $black;
+	color: $white;
+}
+::selection {
+	background: $black;
+	color: $white;
+}
+html {
+	height: 100%;
+}
+body {
+	background: $white;
+	line-height: 1;
+	color: #333;
+	font-size: 16px;
+	font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,Sans-Serif;
+}
+.clearfix {
+	min-height: 1px;
+	&:before,
+	&:after {
+		content: "";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+input, select, textarea, button {
+	font-size:100%;
+	font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo",verdana,Osaka,"ＭＳ Ｐゴシック","MS PGothic",Sans-Serif;
+}
+ul,li {
+	padding: 0;
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+a {
+	text-decoration: none;
+}
